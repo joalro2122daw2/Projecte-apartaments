@@ -10,16 +10,16 @@ class apartament extends Model
     use HasFactory;
     protected $fillable = [
         'Codi_unic',
-        'Referencia castral',
+        'Referenciacatastral',
         'Ciutat',
         'Barri',
-        'Nom del carrer',
-        'Numero del carrer',
+        'Nomcarrer',
+        'Numerocarrer',
         'Pis',
-        'Nombre de llits',
-        'Nombre d habitacions',
+        'Nombrellits',
+        'Nombrehabitacions',
         'Ascensor',
         'Calefaccio',
-        'Aire condicionat'
+        'Airecondicionat'
     ];
 }

@@ -10,14 +10,14 @@ class clients extends Model
     use HasFactory;
     protected $fillable = [
         'Dni_client',
-        'Nom i cognoms',
+        'Nomcognoms',
         'Edat',
         'Telèfon',
         'Adreça',
         'Ciutat',
-        'Pis',
+        'País',
         'Email',
-        'Tipus de targeta',
-        'Número de targeta'
+        'Tipustargeta',
+        'Númerotargeta'
     ];
 }
