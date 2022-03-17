@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 
+use App\Models\apartament;
 use Illuminate\Http\Request;
 
 class ControladorApartament extends Controller
@@ -13,7 +14,8 @@ class ControladorApartament extends Controller
      */
     public function index()
     {
-        //
+        $apartament = apartament::all();
+        return view('index',$apartament);
     }
 
     /**
