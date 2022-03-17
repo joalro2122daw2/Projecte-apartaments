@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
+use App\Models\lloguer;
 
 class ControladorLloguer extends Controller
 {
@@ -13,7 +14,9 @@ class ControladorLloguer extends Controller
      */
     public function index()
     {
-        //
+        $lloguer = Lloguer::all();
+        return view('index', compact('lloguer'));
+
     }
 
     /**
@@ -23,7 +26,7 @@ class ControladorLloguer extends Controller
      */
     public function create()
     {
-        //
+        return view('welcome');
     }
 
     /**
@@ -34,7 +37,22 @@ class ControladorLloguer extends Controller
      */
     public function store(Request $request)
     {
-        //
+        $nouLloguer = $request->validate([
+            'Dni_client' => 'required|max:255',
+            'Codi_unic' => 'required|max:255',
+            'Datainici' => 'required|max:255',
+            'Horainici' => 'required|max:255',
+            'Datafi' => 'required|max:255',
+            'Horafi' => 'required|max:255',
+            'Lloclliuclaus' => 'required|max:255',
+            'Llocdevclaus' => 'required|max:255',
+            'Preudia' => 'required|max:255',
+            'Diposit' => 'required|max:255',
+            'Quantdiposit' => 'required|max:255',
+            'Tipusasseguranca' => 'required|max:255',
+        ]);
+        $lloguer = Lloguer::create($nouLloguer);
+        return redirect('/lloguers')->with('completed', 'Lloguer creat!');
     }
 
     /**
@@ -56,7 +74,8 @@ class ControladorLloguer extends Controller
      */
     public function edit($id)
     {
-        //
+        $lloguer = Lloguer::findOrFail($id);
+        return view('actualitza', compact('lloguer'));
     }
 
     /**
@@ -68,7 +87,22 @@ class ControladorLloguer extends Controller
      */
     public function update(Request $request, $id)
     {
-        //
+        $dades = $request->validate([
+            'Dni_client' => 'required|max:255',
+            'Codi_unic' => 'required|max:255',
+            'Datainici' => 'required|max:255',
+            'Horainici' => 'required|max:255',
+            'Datafi' => 'required|max:255',
+            'Horafi' => 'required|max:255',
+            'Lloclliuclaus' => 'required|max:255',
+            'Llocdevclaus' => 'required|max:255',
+            'Preudia' => 'required|max:255',
+            'Diposit' => 'required|max:255',
+            'Quantdiposit' => 'required|max:255',
+            'Tipusasseguranca' => 'required|max:255',
+        ]);
+        Lloguer::whereId($id)->update($dades);
+        return redirect('/lloguers')->with('completed', 'Lloguer actualitzat');
     }
 
     /**
@@ -79,6 +113,8 @@ class ControladorLloguer extends Controller
      */
     public function destroy($id)
     {
-        //
+        $lloguer = Lloguer::findOrFail($id);
+        $lloguer->delete();
+        return redirect('/lloguers')->with('completed', 'Lloguer esborrat');
     }
 }
