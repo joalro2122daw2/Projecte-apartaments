@@ -9,11 +9,11 @@ class usuaris extends Model
 {
     use HasFactory;
     protected $fillable = [
-        'Nom i cognoms',
+        'Nomcognoms',
         'Email',
         'Contrasenya',
         'Tipus',
-        'Darrera hora d entrada',
-        'Darrera hora de sortida'
+        'Horaent',
+        'Horasort'
     ];
 }

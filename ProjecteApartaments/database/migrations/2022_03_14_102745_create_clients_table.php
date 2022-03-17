@@ -14,18 +14,17 @@ class CreateClientsTable extends Migration
     public function up()
     {
         Schema::create('clients', function (Blueprint $table) {
-            $table->id();
             $table->string('Dni_client');
-            $table->string('Nom i cognoms');
+            $table->primary('Dni_client');
+            $table->string('Nomcognoms');
             $table->integer('Edat');
             $table->integer('Telèfon');
             $table->string('Adreça');
             $table->string('Ciutat');
             $table->string('Pis');
             $table->string('Email');
-            $table->enum('Tipus de targeta', ['Dèbit', 'Crèdit']);
-            $table->integer('Número de targeta');
-            $table->timestamps();
+            $table->enum('Tipustargeta', ['Dèbit', 'Crèdit']);
+            $table->integer('Númerotargeta');
         });
     }
 
