@@ -15,7 +15,7 @@ class ControladorApartament extends Controller
     public function index()
     {
         $apartament = apartament::all();
-        return view('index',$apartament);
+        return view('index',compact('apartament'));
     }
 
     /**

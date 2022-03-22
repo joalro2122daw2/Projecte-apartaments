@@ -42,8 +42,8 @@
                     <td>{{$empl->Calefaccio}}</td>
                     <td>{{$empl->Airecondicionat}}</td>
                     <td class="text-left">
-                        <a href="{{ route('apartament.edit', $apartament->Codi_unic)}}" class="btn btn-success btn-sm">Edita</a>
-                        <form action="{{ route('apartament.destroy', $apartament->Codi_unic)}}" method="post" style="display: inline-block">
+                        <a href="{{ route('apartament.edit', $apartament ?? '' ->Codi_unic)}}" class="btn btn-success btn-sm">Edita</a>
+                        <form action="{{ route('apartament.destroy', $apartament ?? '' ->Codi_unic)}}" method="post" style="display: inline-block">
                             @csrf
                             @method('DELETE')
                             <button class="btn btn-danger btn-sm" type="submit">Esborra</button>
